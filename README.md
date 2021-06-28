@@ -15,3 +15,22 @@ An example of how webhooks might be implemented as an integration point for a we
 A main web app exists and new webhooks functionality is added by creating a microservice.
 
 ![Webhooks](images/webhooks.png)
+
+
+## Example usage
+
+    % docker-compose up
+
+    % http POST localhost:8000/webhooks/ url=https://localhost:8001
+    HTTP/1.1 200 OK
+    [
+        {
+            "fields": {
+                "url": "https://localhost:8001"
+            },
+            "model": "app.webhook",
+            "pk": 6
+        }
+    ]
+
+    
