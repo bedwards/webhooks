@@ -13,7 +13,7 @@ services:
   mq:
     image: softwaremill/elasticmq
     volumes:
-      - ./elasticmq/elasticmq.conf:/opt/elasticmq.conf
+      - ./elasticmq/custom.conf:/opt/elasticmq.conf
       - ./elasticmq/application.ini:/opt/docker/conf/application.ini
     ports:
       - "9324:9324"
