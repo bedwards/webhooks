@@ -1,7 +1,5 @@
+import sys
 import boto3
-
-sqs_endpoint = 'localhost'
-sqs_port = '9324'
 
 client = boto3.resource('sqs',
                         endpoint_url='http://localhost:9324',
@@ -11,4 +9,9 @@ client = boto3.resource('sqs',
                         use_ssl=False)
 
 queue = client.get_queue_by_name(QueueName='events')
-queue.send_message(MessageBody='{"foo": "bar"}')
+
+
+event = "Hello webhooks world"
+if len(sys.argv) > 1:
+    event = ' '.join(sys.argv[1:])
+queue.send_message(MessageBody='{"event": "%s"}' % event)

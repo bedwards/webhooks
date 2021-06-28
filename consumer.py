@@ -10,4 +10,4 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
 
-HTTPServer(('', 8001), Handler).serve_forever()
+HTTPServer(('', 7777), Handler).serve_forever()

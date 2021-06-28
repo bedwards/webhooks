@@ -28,3 +28,11 @@ services:
     depends_on:
       - db
       - mq
+  worker:
+    build: .
+    command: python manage.py worker
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - mq
